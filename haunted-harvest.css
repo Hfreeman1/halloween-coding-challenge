@@ -1,0 +1,139 @@
+/* Halloween colors */
+:root {
+  --pumpkin: #ff7518;
+  --candy-purple: #5a189a;
+  --spider-black: #1a1423;
+  --slime-green: #8ac926;
+  --ghost-white: #f6f2f8;
+  --candle-glow: #ffd60a;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--spider-black);
+  color: var(--ghost-white);
+  text-align: center;
+}
+
+header {
+  padding: 20px;
+  background-color: var(--candy-purple);
+}
+
+h1 {
+  color: var(--pumpkin);
+}
+
+.scenes {
+  padding: 30px;
+}
+
+/* Hide all scenes */
+.scene {
+  display: none;
+  min-height: 400px;
+}
+
+/* Show the first scene when the page opens */
+.scene:first-child {
+  display: block;
+}
+
+/* Show the selected scene */
+.scene:target {
+  display: block;
+}
+
+/* Hide the first scene when another scene is selected */
+.scenes:has(.scene:target) .scene:first-child:not(:target) {
+  display: none;
+}
+
+.characters {
+  font-size: 50px;
+  margin: 40px 0;
+}
+
+a {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: var(--pumpkin);
+  color: var(--spider-black);
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+a:hover,
+a:focus {
+  background-color: var(--candle-glow);
+}
+
+footer {
+  padding: 15px;
+}
+
+/* Simple Halloween animations */
+
+.cloud {
+  font-size: 40px;
+  animation: moveAcross 8s linear infinite;
+}
+
+.bat {
+  font-size: 35px;
+  animation: moveAcross 6s linear infinite;
+}
+
+.fog {
+  font-size: 60px;
+  opacity: 0.5;
+  animation: moveAcross 10s linear infinite;
+}
+
+.flying-witch {
+  font-size: 45px;
+  animation: moveAcross 7s linear infinite;
+}
+
+@keyframes moveAcross {
+  from {
+    transform: translateX(-40%);
+  }
+
+  to {
+    transform: translateX(40%);
+  }
+}
+
+.broom {
+  font-size: 40px;
+  animation: moveAcross 5s linear infinite;
+}
+
+/* Accessibility: reduce animation if requested */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .scenes {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .characters {
+    font-size: 35px;
+  }
+
+  a {
+    padding: 8px 15px;
+  }
+}
